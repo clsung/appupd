@@ -11,3 +11,4 @@ class Apk(models.Model):
     service_intent = models.CharField(max_length=100)
     receiver_intent = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
+    file = models.FileField(upload_to=generate_content_filename)
