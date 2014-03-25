@@ -1,0 +1,8 @@
+Django==1.6.2
+Fabric==1.8.2
+Markdown==2.3.1
+boto==2.25.0
+coverage==3.7.1
+django-s3direct==0.1.7
+django-storages==1.1.8
+unittest-xml-reporting==1.7.0
