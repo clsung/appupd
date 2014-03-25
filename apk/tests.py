@@ -12,7 +12,7 @@ class UploadAPKTests(TestCase):
         pass
 
     def test_upload_single_apk(self):
-        url = reverse('upload')
+        url = reverse('upload_apk')
         f = SimpleUploadedFile("apk1_1.0.0.apk", "file_content")
         response = self.c.post(
             url,
