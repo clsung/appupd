@@ -1,4 +1,14 @@
 from django.db import models
+from hashlib import md5
+from datetime import datetime
+
+
+def generate_content_filename(instance, filename):
+    #ext = os.path.splitext(filename)[1]
+    #return 'converted/{0}.{1}'.format(uuid4(), ext)
+    return u'apk/{0}-{1}'.format(
+        md5(datetime.now().isoformat()).hexdigest()[:8],
+        filename)
 
 
 class Apk(models.Model):
