@@ -14,7 +14,7 @@ from .models import Apk
 class ApkView(View):
     def get(self, request, *args, **kwargs):
         form = ApkForm()
-        return render_to_response('upload.html', {'form': form})
+        return render_to_response('apk/upload.html', {'form': form})
 
     @method_decorator(login_required)
     def post(self, request, *args, **kwargs):
@@ -23,7 +23,7 @@ class ApkView(View):
             #f = LogFileResource(logfile=request.FILES['file'])
             form.save()
             return HttpResponseRedirect('/')
-        return render_to_response('upload.html', {'form': form})
+        return render_to_response('apk/upload.html', {'form': form})
 
 
 class ApkListView(ListView):
