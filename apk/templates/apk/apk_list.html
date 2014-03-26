@@ -1,7 +1,7 @@
 <h1>APK List</h1>
 <ul>
 {% for apk in object_list %}
-    <li>{{ apk.created|date }} - {{ article.package_name }}</li>
+    <li>{{ apk.created|date }} - {{ apk.package_name }} - {{ apk.file }} </li>
 {% empty %}
     <li>No apk yet.</li>
 {% endfor %}
