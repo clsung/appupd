@@ -59,6 +59,7 @@ def json_output(request):
             'version': '{0}.{1}.{2}'.format(apk.ver_major,
                                             apk.ver_minor,
                                             apk.ver_patch),
+            'device_type': apk.device_type,
             'download_link': apk.file.url,
             'activity_intent': apk.activity_intent,
             'service_intent': apk.service_intent,
