@@ -31,7 +31,10 @@ class UploadAPKTests(TestCase):
             url,
             {
                 "package_name": "apk1",
-                "version": "1.0.0",
+                "ver_major": 1,
+                "ver_minor": 1,
+                "ver_patch": 1,
+                "device_type": "app",
                 "activity_intent": "activity",
                 "service_intent": "service",
                 "reverse_intent": "receiver",

@@ -2,7 +2,6 @@ import logging
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.utils.decorators import method_decorator
-from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 from django.views.generic import View
@@ -27,11 +26,12 @@ class ApkView(View):
     @method_decorator(login_required)
     def post(self, request, *args, **kwargs):
         form = ApkForm(request.POST, request.FILES)
+        c = {'form': form}
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
-        c = {'form': form}
-        return render(request, 'apk/upload.html', c, status=201)
+            return render(request, 'apk/upload.html', c, status=201)
+        c.update(csrf(request))
+        return render_to_response('apk/upload.html', c)
 
 
 class ApkListView(ListView):
