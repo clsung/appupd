@@ -9,6 +9,7 @@ class ApkForm(ModelForm):
                   'ver_major',
                   'ver_minor',
                   'ver_patch',
+                  'device_type',
                   'activity_intent',
                   'service_intent',
                   'receiver_intent',
