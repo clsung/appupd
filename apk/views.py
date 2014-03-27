@@ -4,7 +4,7 @@ from django.core.context_processors import csrf
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.views.generic import View
 from django.views.generic.list import ListView
 from django.utils import timezone
@@ -31,8 +31,7 @@ class ApkView(View):
             form.save()
             return HttpResponseRedirect('/')
         c = {'form': form}
-        c.update(csrf(request))
-        return render_to_response('apk/upload.html', c)
+        return render(request, 'apk/upload.html', c, status=201)
 
 
 class ApkListView(ListView):
