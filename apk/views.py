@@ -53,7 +53,8 @@ def json_output(request):
     logger.debug(all_apk_names)
     for apk_name in all_apk_names:
         apk = Apk.objects.filter(
-            package_name__exact=apk_name[0]).order_by('created')[:1][0]
+            package_name__exact=apk_name[0]).order_by(
+            'created').reverse()[:1][0]
         response_data.append({
             'package_name': apk_name[0],
             'version': '{0}.{1}.{2}'.format(apk.ver_major,
